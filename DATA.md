@@ -21,13 +21,13 @@ Three reasons, in order of weight:
 
 ## Sources
 
-### Fight statistics — ufcstats.com
+### Fight statistics: ufcstats.com
 
 Historical bout results, per-round statistics, and fighter attributes.
 
 Retrieved by a **separate, external tool** licensed **GPL-3.0**, which is not
 vendored here and must be obtained under its own terms. This project's
-`src/ufc/ingest/parse_scraper.py` consumes the CSV files that tool emits — it
+`src/ufc/ingest/parse_scraper.py` consumes the CSV files that tool emits. It
 does not import, wrap, or derive from GPL-licensed source, so no copyleft
 obligation attaches to this codebase.
 
@@ -38,7 +38,7 @@ hit the same public site directly.
 > Anyone running this code is responsible for the target site's terms of
 > service and for scraping politely. Rate limits exist for a reason.
 
-### Prediction-market quotes — Kalshi
+### Prediction-market quotes: Kalshi
 
 `src/ufc/ingest/market_lines.py` reads the **public Kalshi REST API**. No
 authentication, no key, no account. Kalshi is a CFTC-regulated exchange with a
@@ -74,7 +74,7 @@ python scripts/_joint_coherence_check.py # Gate D - joint coherence
 ```
 
 Paths are configured in `configs/paths.yaml`. The temporal split is locked in
-`configs/split.yaml` — train ≤2023, validate 2024, test 2025-26 — so that
+`configs/split.yaml` (train ≤2023, validate 2024, test 2025-26), so that
 evaluation numbers stay honest across runs.
 
 ## Tests without data

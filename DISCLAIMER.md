@@ -9,7 +9,7 @@ sanctioning body.
 
 UFC®, Ultimate Fighting Championship®, and Octagon® are registered trademarks
 of their respective owners. They appear in this repository only where needed
-to describe the sport being modelled — nominative, descriptive use. No claim
+to describe the sport being modelled, as nominative descriptive use. No claim
 of ownership or association is made or implied.
 
 ## Research software, provided as-is

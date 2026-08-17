@@ -7,7 +7,7 @@
 **A calibrated probabilistic forecasting engine for UFC fights.**
 
 **66.5% winner accuracy** on a held-out temporal split, at a calibration error
-of **0.041** — plus how the fight ends, how long it lasts, and how many strikes
+of **0.041**, plus how the fight ends, how long it lasts, and how many strikes
 land, as full probability distributions rather than point guesses.
 
 [**Live demo**](https://fight-path-ml.vercel.app) · [Results](#results--the-four-gates) · [Forward evaluation](#forward-evaluation-not-backtest-theatre) · [Architecture](#architecture)
@@ -25,7 +25,7 @@ Fight prediction is a genuinely hard forecasting problem, and most of what
 makes it hard is invisible from the outside:
 
 - **Tiny per-fighter samples.** A veteran has 15 UFC fights. Many have three.
-  Debutants have zero — and the model must still produce a number.
+  Debutants have zero, and the model must still produce a number.
 - **Heavy-tailed outcomes.** A fight is a survival process with competing
   risks (KO, submission, decision) that can terminate at any second. Averages
   are close to meaningless.
@@ -35,7 +35,7 @@ makes it hard is invisible from the outside:
   windows all quietly encode the result of the fight you are trying to predict
   unless every feature is built strictly from pre-fight state.
 
-Two things follow. First, accuracy alone is a weak claim — it is easy to
+Two things follow. First, accuracy alone is a weak claim, because it is easy to
 inflate with a leaky feature or a lucky split, which is why this project fixes
 its temporal split in config and re-runs the same gates on every change.
 Second, the harder and more useful target is **calibration**: a model that says
@@ -44,13 +44,13 @@ watch; a calibrated one tells you how much to believe it.
 
 FightPath is built to hit both, and to prove it on data it has never seen.
 
-## Results — the four gates
+## Results: the four gates
 
 Development is governed by four pre-registered gates with fixed thresholds.
 They are the **only** optimization targets; new objectives are not invented
 mid-flight to make a result look better.
 
-Evaluated on the **EVAL tier** — a locked temporal split (train ≤2023,
+Evaluated on the **EVAL tier**, a locked temporal split (train ≤2023,
 validate 2024, test 2025–26) that never sees the test years. Numbers below are
 one coherent run (`INJ-4`, 2026-07-17), not a best-of assembled across runs.
 
@@ -64,25 +64,25 @@ one coherent run (`INJ-4`, 2026-07-17), not a best-of assembled across runs.
 | | Method ECE (CI-lower) | ≤ 0.05 | within CI | ✅ |
 | **D** Joint coherence | Contradictions across heads | 0 violations | **0** | ✅ |
 
-**66.5% winner accuracy at an ECE of 0.041** — the model is not only accurate,
+**66.5% winner accuracy at an ECE of 0.041.** The model is not only accurate,
 it is *honest*: when it says 70%, it wins close to 70% of the time. Calibration
 is the harder half of that sentence and the one most fight models skip.
 
 Gate B is a distribution-shape test across 11 prop markets, held to a
 deliberately strict standard: a prop passes only if its full predicted
 distribution survives a Kolmogorov–Smirnov test, not merely if its mean is
-close. `r1_sig_strikes` carries a documented structural exemption — round-1
+close. `r1_sig_strikes` carries a documented structural exemption, because round-1
 counts are bimodal, because a fight either ends in round 1 or doesn't, and one
 marginal distribution cannot fit both modes.
 
 **Gate D** is the one I would point at first. It checks that the heads don't
-contradict each other — that P(KO) and the strike-count distribution and the
+contradict each other, so that P(KO) and the strike-count distribution and the
 fight-duration curve describe the *same* fight. Independently accurate heads
 that jointly imply nonsense are a failure mode most pipelines never test for.
 
 ## Forward evaluation, not backtest theatre
 
-A backtest is a claim. A forward-graded log is evidence — so the system is
+A backtest is a claim. A forward-graded log is evidence, so the system is
 built to hold itself to the second standard.
 
 Every prediction is written to a ledger **before the fight happens**, with a
@@ -90,7 +90,7 @@ timestamp, and graded automatically once results land. Nothing is scored
 against data it could have peeked at, and no number in the live record was
 produced by re-running a model over an outcome it already knew.
 
-**Live graded record: 549–284 — 65.9% across 833 graded predictions**, drawn
+**Live graded record: 549–284, or 65.9% across 833 graded predictions**, drawn
 from a database of 8,635 fights over 778 events. That tracks the 66.5%
 measured offline on the held-out split, which is exactly what you want to see:
 the forward record and the held-out evaluation agreeing to within a point.
@@ -98,13 +98,13 @@ the forward record and the held-out evaluation agreeing to within a point.
 The same discipline extends to market comparison. Scheduled jobs capture
 **closing lines** for every logged position and grade each one against the
 market's final price, so model probabilities can be scored with a proper
-forecasting metric (closing-line value) rather than raw win/loss — which is
+forecasting metric (closing-line value) rather than raw win/loss, which is
 mostly noise at these sample sizes. That machinery is part of the repository:
 
-- `scripts/07_log_predictions.py` — pre-fight prediction ledger
-- `scripts/07c_capture_closing_lines.py` — closing-line capture
-- `scripts/08_grade_predictions.py` / `08b_grade_props.py` — automated grading
-- `scripts/08c_report_prop_ledger.py` — forward scorecard
+- `scripts/07_log_predictions.py`: pre-fight prediction ledger
+- `scripts/07c_capture_closing_lines.py`: closing-line capture
+- `scripts/08_grade_predictions.py` / `08b_grade_props.py`: automated grading
+- `scripts/08c_report_prop_ledger.py`: forward scorecard
 
 Calibration, coherence, and forward grading are the three things that make a
 probabilistic model trustworthy, and each one is measured here rather than
@@ -115,11 +115,11 @@ asserted.
 | | |
 |---|---|
 | ![Fight card](docs/images/fight-card.png) | ![Prop lab](docs/images/prop-lab.png) |
-| **Fight card** — per-bout win probability, method split, and the top drivers behind each pick | **Prop Lab** — full survival curve and quantiles for any market and line |
+| **Fight card**: per-bout win probability, method split, and the top drivers behind each pick | **Prop Lab**: full survival curve and quantiles for any market and line |
 
 ![Graded record](docs/images/performance.png)
 
-**Performance** — every prediction is logged *before* the fight and graded
+**Performance**: every prediction is logged *before* the fight and graded
 after, so the live record is a forward test rather than a backfit.
 
 ## Architecture
@@ -137,8 +137,8 @@ Kalshi public API ──► market baseline ──► FastAPI ──► React/Vi
 data through the latest card, but a model trained on everything has no honest
 test set. So there are two tiers from one codebase, selected at runtime:
 
-- **EVAL** — locked split, never sees 2025–26. The honest yardstick. Gates run here.
-- **PROD** — rolling split, trains through the latest card. This is what gets served.
+- **EVAL**: locked split, never sees 2025–26. The honest yardstick. Gates run here.
+- **PROD**: rolling split, trains through the latest card. This is what gets served.
 
 Any accuracy figure shown to a user comes from the EVAL tier. Scoring the PROD
 tier on data it memorized would be self-flattery, and this separation exists
@@ -154,7 +154,7 @@ specifically to make that mistake impossible rather than merely discouraged.
 | Props | Count distributions per market | CDF per line |
 
 Prop markets are priced by Monte Carlo over the joint outcome so that
-correlations survive — strike counts conditioned on the fight actually
+correlations survive, with strike counts conditioned on the fight actually
 reaching that round, not marginal averages multiplied together.
 
 **Ratings.** Elo, Glicko, and TrueSkill are maintained per fighter with
@@ -174,7 +174,7 @@ result of the fight it is used to predict.
   dataset skip cleanly rather than failing.
 - **Run log.** [`RUNS.md`](RUNS.md) records every change against its gate
   results, including reverts. The standing rule is: add one complexity at a
-  time, re-run the gates, and **revert on regression** — several entries are
+  time, re-run the gates, and **revert on regression**. Several entries are
   changes that seemed good and were backed out on the numbers.
 - **Research notes** in [`docs/notes/`](docs/notes/) document investigations,
   including the ones that concluded "no effect."
@@ -194,7 +194,7 @@ pip install -e .          # puts `ufc` on the path
 pytest -q                 # green without any dataset
 ```
 
-The repository ships **no trained weights and no scraped dataset** — see
+The repository ships **no trained weights and no scraped dataset**. See
 [DATA.md](DATA.md) for why, the provenance of each source, and the commands to
 rebuild the dataset and retrain from scratch.
 
@@ -213,11 +213,11 @@ knowing what it is worth:
   than quietly served at full confidence.
 - **Round-1 prop distributions** are bimodal by construction (see Gate B) and
   carry a pre-registered structural exemption.
-- **Fight-night information is out of scope** — weight-cut trouble, undisclosed
+- **Fight-night information is out of scope**: weight-cut trouble, undisclosed
   injuries, camp changes. A meaningful share of residual error lives here, and
   it is the most promising direction for the next version.
 
 ## License
 
 [Apache-2.0](LICENSE). Trained model weights and datasets are **not** included
-and **not** licensed — see [NOTICE](NOTICE).
+and **not** licensed. See [NOTICE](NOTICE).
