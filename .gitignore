@@ -1,0 +1,61 @@
+# ── Never commit data or model artifacts ─────────────────────────────────────
+# This repository deliberately ships no scraped dataset and no trained weights
+# (see DATA.md / NOTICE). These patterns are broad on purpose: a stray `git add`
+# must not be able to reintroduce them.
+*.joblib
+*.pkl
+*.pickle
+*.parquet
+*.feather
+*.h5
+*.onnx
+data/
+outputs/models/
+outputs/reports/
+cards/
+catboost_info/
+
+# ── Secrets ──────────────────────────────────────────────────────────────────
+.env
+.env.*
+*.env.local
+*.pem
+*.key
+secrets.*
+credentials.*
+
+# ── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ── Node / frontend ──────────────────────────────────────────────────────────
+node_modules/
+frontend/dist/
+npm-debug.log*
+yarn-error.log*
+
+# ── Logs and scratch ─────────────────────────────────────────────────────────
+logs/
+*.log
+.playwright-mcp/
+
+# ── Editors / OS ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.obsidian/
+.DS_Store
+Thumbs.db
+
+# Internal agent tooling (references private infrastructure)
+.claude/

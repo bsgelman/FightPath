@@ -1,0 +1,49 @@
+FightPath
+Copyright 2026 Benjamin Gelman
+
+This product includes software developed by Benjamin Gelman.
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+
+--------------------------------------------------------------------------
+What this repository does NOT include or license
+--------------------------------------------------------------------------
+
+TRAINED MODEL WEIGHTS
+  No trained model artifacts (.joblib or otherwise) are distributed here.
+  The Apache-2.0 grant covers the source code in this repository only. It
+  conveys no licence to any trained model produced from it.
+
+DATASETS
+  No scraped or derived fight dataset is distributed here. The code can
+  rebuild the dataset from public sources; see DATA.md for provenance and
+  instructions. Data obtained by running this software is subject to the
+  terms of whoever publishes that data, not to this licence.
+
+THIRD-PARTY DATA SOURCES
+  This project reads data produced by external tools and public APIs that
+  are neither included in nor redistributed by this repository. One such
+  tool is licensed GPL-3.0 and must be obtained separately under its own
+  terms; no GPL-licensed code is present in or derived into this codebase.
+  See DATA.md.
+
+
+--------------------------------------------------------------------------
+Images
+--------------------------------------------------------------------------
+
+  fightpath-logo.png  - original work, authored by Benjamin Gelman, and
+                        covered by this repository's licence.
+
+  All other imagery referenced during development is deliberately excluded
+  from this repository.
+
+
+--------------------------------------------------------------------------
+Trademarks
+--------------------------------------------------------------------------
+
+UFC(R), Ultimate Fighting Championship(R), and Octagon(R) are registered
+trademarks of Zuffa, LLC / TKO Group Holdings. This project is not
+affiliated with, endorsed by, or sponsored by them. Those marks appear only
+where necessary to describe the sport this software models. See DISCLAIMER.md.
