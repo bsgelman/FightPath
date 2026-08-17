@@ -1,0 +1,24 @@
+kelly_cap: 0.25  # fractional Kelly cap
+
+powerplay:
+  power_2pick: 3.0
+  power_3pick: 5.0
+  power_4pick: 10.0
+  flex_3pick:
+    "3of3": 2.25
+    "2of3": 1.25
+  flex_4pick:
+    "4of4": 3.5
+    "3of4": 1.5
+    "2of4": 0.4
+  demon: 3.0    # fallback total-payout; tune to live board; live API value preferred
+  goblin: 3.0   # fallback total-payout; tune to live board; live API value preferred
+
+flatmulti:
+  standard_2pick: 3.0
+  standard_3pick: 6.0
+  standard_4pick: 10.0
+  boost: 4.5    # fallback total-payout; tune to live board; live API value preferred
+
+# Minimum edge to flag as a bet
+min_edge_pct: 0.05

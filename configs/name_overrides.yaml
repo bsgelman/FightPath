@@ -1,0 +1,23 @@
+# Hard-coded fighter name mappings: normalized_name -> fighter_id (URL hex)
+# Format: "normalized name": "hex_id"
+# Add entries here when name_match.py logs unresolved names
+
+overrides:
+  # Hyphen vs space
+  "waldo cortes acosta": "fc08099550072fe4"
+  # Full name vs short name
+  "zach reese": "23dec7c47cb418f8"
+  # Jr. suffix stripped by normalization
+  "michael aswell jr": "01c9e4013afce141"
+  # Spelling variant: cerquiera vs cerqueira
+  "rafael cerquiera": "09a4447655fd4b7b"
+  # III suffix stripped
+  "kai kamaka iii": "eee0ef3e2b14816b"
+  # Patricio "Pitbull" Freire (Bellator crossover)
+  "patricio pitbull": "98a58c26c5b1ed17"
+  # Benjamin Donovan Johnston fights as "Ben Johnston"
+  "ben johnston": "3261aa79bf6caa64"
+  # Shaqueme Rock also known as Shem Rock
+  "shem rock": "52b6bf4528130e86"
+  # Adrian Luna Martinetti = Juan Adrian Luna
+  "adrian luna martinetti": "e3b30b573e7f0d19"

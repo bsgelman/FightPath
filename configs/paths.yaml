@@ -1,0 +1,30 @@
+raw:
+  scraper: "data/raw/scraper"
+  archive: "data/raw/archive"
+
+interim:
+  events: "data/interim/events.parquet"
+  fights: "data/interim/fights.parquet"
+  fight_rounds: "data/interim/fight_rounds.parquet"
+  fighters: "data/interim/fighters.parquet"
+  name_map: "data/interim/name_map.parquet"
+
+processed:
+  ledger: "data/processed/ledger.parquet"
+  features_winner: "data/processed/features_winner.parquet"
+  features_props: "data/processed/features_props.parquet"
+  pre_fight_state: "data/processed/pre_fight_state.parquet"
+
+external:
+  lines: "data/external/lines"
+  market_lines: "data/external/market_lines"
+
+outputs:
+  models: "outputs/models"
+  reports: "outputs/reports"
+  cv: "outputs/models/cv"
+
+scraper_source: "scrape_ufc_stats-main"
+archive_source: "archive (3)"
+
+upcoming_cards: "cards/upcoming"

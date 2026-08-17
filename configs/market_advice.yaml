@@ -1,0 +1,27 @@
+# Prediction-market (Kalshi) advice validation gate.
+#
+# Exchange picks surface as advisory-PAPER until the forward ledger proves
+# positive CLV, PER MARKET KIND. Pre-registered rule (do not loosen after
+# seeing results): flip one kind to "live" only when >= live_min_graded taker
+# rows FOR THAT KIND are graded AND that kind's avg CLV > 0 AND its hit rate
+# >= breakeven. If CLV is negative at review time, the kind stays paper —
+# that is a valid, documented conclusion (market priced us correctly), not a
+# bug to fix. `status` is the fallback for any kind not listed below (and for
+# a "{family}N" kind, e.g. end_before_r2, falling back to the family key
+# end_before_r before the global fallback).
+status: paper   # global fallback — "paper" | "live"
+status_by_kind:
+  winner: paper
+  method_ko: paper
+  method_sub: paper
+  method_dec: paper
+  distance: paper
+  mof_ko: paper
+  mof_sub: paper
+  mof_dec: paper
+  end_before_r: paper        # family key — covers end_before_r2, end_before_r3, ...
+  win_in_r: paper            # family key — covers win_in_r1 ... win_in_r5
+  vicround_other: paper
+
+live_min_graded: 50
+live_requires_positive_clv: true

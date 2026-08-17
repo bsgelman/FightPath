@@ -1,0 +1,43 @@
+# NGBoost blocks kept for reference but no longer used (switched to LGBM-only)
+# ngboost:
+#   sig_strikes:
+#     dist: Poisson
+#     n_estimators: 500
+#     learning_rate: 0.05
+#     minibatch_frac: 0.5
+#   takedowns:
+#     dist: Poisson
+#     n_estimators: 500
+#     learning_rate: 0.05
+#     minibatch_frac: 0.5
+#   sub_attempts:
+#     dist: Poisson
+#     n_estimators: 500
+#     learning_rate: 0.05
+#     minibatch_frac: 0.5
+
+lgbm_quantile:
+  n_estimators: 800
+  learning_rate: 0.05
+  num_leaves: 63
+  min_child_samples: 20
+
+weibull_aft:
+  penalizer: 1.0
+  l1_ratio: 0.1
+
+method_clf:
+  objective: multiclass
+  num_class: 3
+  n_estimators: 500
+  num_leaves: 31
+  learning_rate: 0.05
+  verbosity: -1
+
+ensemble_weights:
+  ngboost: 0.5
+  lgbm_quantile: 0.5
+
+simulator:
+  default_n_samples: 50000
+  seed: 42

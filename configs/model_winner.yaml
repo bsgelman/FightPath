@@ -1,0 +1,56 @@
+lgbm:
+  objective: binary
+  metric: binary_logloss
+  verbosity: -1
+  n_estimators: 1000
+  early_stopping_rounds: 50
+  search_space:
+    num_leaves: [20, 300]
+    max_depth: [3, 10]
+    learning_rate: [0.005, 0.1]
+    feature_fraction: [0.4, 1.0]
+    bagging_fraction: [0.4, 1.0]
+    bagging_freq: [1, 10]
+    min_child_samples: [5, 100]
+    reg_alpha: [0.0, 1.0]
+    reg_lambda: [0.0, 10.0]
+
+xgb:
+  objective: binary:logistic
+  eval_metric: logloss
+  n_estimators: 1000
+  early_stopping_rounds: 50
+  verbosity: 0
+  search_space:
+    max_depth: [3, 10]
+    learning_rate: [0.005, 0.1]
+    subsample: [0.4, 1.0]
+    colsample_bytree: [0.4, 1.0]
+    min_child_weight: [1, 10]
+    reg_alpha: [0.0, 1.0]
+    reg_lambda: [0.0, 10.0]
+    gamma: [0.0, 5.0]
+
+catboost:
+  loss_function: Logloss
+  eval_metric: Logloss
+  iterations: 1000
+  early_stopping_rounds: 50
+  verbose: 0
+  cat_features: ["weight_class", "stance_pair"]
+  search_space:
+    depth: [3, 10]
+    learning_rate: [0.005, 0.1]
+    l2_leaf_reg: [1, 30]
+    bagging_temperature: [0.0, 1.0]
+    random_strength: [0.0, 10.0]
+
+optuna:
+  n_trials: 100
+  n_cv_folds: 5
+  direction: minimize
+  pruner: median
+
+ensemble:
+  method: logit_average
+  tune_weights: true

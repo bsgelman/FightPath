@@ -1,0 +1,47 @@
+windows:
+  rolling: [3, 5]          # l3, l5
+  date_months: 24          # 2y window
+  decay_halflife_days: 548  # 18-month half-life (18 * 30.44)
+
+elo:
+  k_base: 24
+  injury_k_factor: 0.25   # freak-injury outcomes transfer 4x less rating (spec 2026-07-15)
+  method_multipliers:
+    "KO/TKO": 1.30
+    "SUB": 1.25
+    "U-DEC": 1.00
+    "S-DEC": 0.80
+    "M-DEC": 0.80
+    "DQ": 0
+    "NC": 0
+  inactivity_threshold_days: 365
+  inactivity_regress_pct: 0.25
+  quality_scale: 0.4
+  quality_width: 200
+  initial_rating: 1500.0
+
+glicko2:
+  initial_mu: 1500.0
+  initial_phi: 350.0
+  initial_sigma: 0.06
+  tau: 0.5
+
+style_pca_components: 5
+cardio_round_threshold: 4   # need at least 4-round fight for cardio score
+
+damage_weights:
+  head: 1.0
+  body: 0.4
+  leg: 0.2
+
+altitude_lookup:
+  "Mexico City": 2240
+  "Denver": 1609
+  "Salt Lake City": 1288
+  "Albuquerque": 1510
+  "Bogota": 2600
+  "Calgary": 1045
+  "Edmonton": 671
+  "Colorado Springs": 1839
+  "Las Vegas": 620
+  "Abu Dhabi": 27

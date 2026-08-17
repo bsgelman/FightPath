@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ufc"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "scikit-learn>=1.4",
+    "scipy",
+    "matplotlib",
+    "pyyaml",
+    "pyarrow",
+    "joblib",
+    "tqdm",
+    "lightgbm",
+    "xgboost",
+    "catboost",
+    "ngboost",
+    "lifelines",
+    "optuna",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

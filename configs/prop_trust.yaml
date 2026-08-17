@@ -1,0 +1,53 @@
+# Prop market trust tiers — advisory only, not a gate.
+# Updated by running scripts/05c_evaluate_prop_edge.py and reviewing the scorecard.
+#
+# TRUST : real resolution (AUC >=0.55) + edge-pick hit-rate CI clears breakeven
+# WATCH : calibrated, weak/uncertain edge (CI straddles breakeven); monitor via ledger
+# CUT   : no resolution (AUC ~0.50) / structurally unpredictable; flag low-confidence
+#
+# Last scorecard: 2026-07-10 (eval test set 2025-26, n=780 fights; audit-remediation
+# retrain 1821503 — B1 weight-class fix + B2 feature visibility. Gate B honest state
+# is 7/11+exempt: duration/leg_sig_strikes/sig_strikes_combo PIT-FAIL — the v8.39
+# "10/11" was re-scoring old frozen models, see RUNS.md 2026-07-09. PIT fail =
+# distribution shape miscalibrated; edge-pick hit rates below are measured directly
+# on the same test set and survive it.)
+# Run: python scripts/05c_evaluate_prop_edge.py
+
+tiers:
+  # TRUST: AUC >=0.55, edge proven on test set
+  sig_strikes:      TRUST    # AUC 0.659, BSS +0.061, 2059 picks, hit 0.716
+  leg_sig_strikes:  TRUST    # AUC 0.719, BSS +0.098, edge at 4.5 (n=149, hit=0.752)
+                             # CAVEAT: Gate B PIT now FAIL (p=0.0057, honest retrain) —
+                             # distribution shape off, but pick hit-rate clears breakeven
+                             # CI on the same test set; watch the forward ledger
+  body_sig_strikes: TRUST    # AUC 0.655, BSS +0.061 — edge at 4.5 (n=254, hit=0.713);
+                             # Gate B recovered FAIL->PASS via B1 weight-class fix.
+                             # MONITOR: prod rate_calib_factor=1.1524, outside [0.90,1.10]
+                             # sanity range — check picks after first graded card
+  takedowns:        TRUST    # AUC 0.712, BSS +0.090, 183 picks, hit 0.813 — strongest yet
+  ctrl_time:        TRUST    # AUC 0.689, BSS +0.086 — 27 picks hit 0.889 (was n=12;
+                             # evidence thickening, keep watching the ledger)
+
+  # WATCH: good resolution but edge picks too thin or breakeven not cleared
+  duration:         WATCH    # DEMOTED 2026-07-12: test-set numbers glow (AUC 0.932,
+                             # hit 0.997) but forward ledger is 2/17 edge picks (11.8%)
+                             # vs 39.5% breakeven over two cards, AND Gate B PIT FAIL
+                             # (p=0.0026) ruled structural (v8.40 closure test).
+                             # Re-promote only if forward edge picks clear breakeven.
+  r1_sig_strikes:   WATCH    # AUC 0.678, BSS +0.079, 618 picks hit 0.645 edge-proven on
+                             # scorecard — but still the accepted structural Gate B fail
+                             # (p=0.0000); standing decision: hold at WATCH
+  r1_takedowns:     WATCH    # AUC 0.735, BSS +0.041 — 14 picks hit 0.714, CI [0.50, 0.93]
+                             # straddles breakeven; edge NOT proven
+  sig_strikes_combo: WATCH   # Not in 05c scorecard; Gate B PIT FAIL (p=0.0011); monitor
+  ko_finish:        WATCH    # Finish props not yet in 05c scorecard; monitor
+  sub_finish:       WATCH
+  finish:           WATCH
+  r1_finish:        WATCH
+
+  # CUT: near-zero BSS / no actionable signal
+  knockdowns:       CUT      # AUC 0.614, BSS +0.011 — scorecard "TRUST" suggestion is a
+                             # degenerate n=1 pick (CI [1.0,1.0]); no real signal, stay CUT
+  sub_attempts:     CUT      # AUC 0.629, BSS +0.018 — 0 edge picks
+
+last_scorecard: "2026-07-10"

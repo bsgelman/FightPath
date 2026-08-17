@@ -1,0 +1,8 @@
+/src/
+/scripts/
+/data/
+/outputs/
+/notebooks/
+/tests/
+/.claude/
+/.agents/
