@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "type": "projection",
+      "id": "proj1",
+      "attributes": {
+        "line_score": 52.5,
+        "stat_type": "Significant Strikes",
+        "odds_type": "standard"
+      },
+      "relationships": {
+        "new_player": {"data": {"type": "new_player", "id": "p1"}}
+      }
+    },
+    {
+      "type": "projection",
+      "id": "proj2",
+      "attributes": {
+        "line_score": 1.5,
+        "stat_type": "Takedowns",
+        "odds_type": "standard"
+      },
+      "relationships": {
+        "new_player": {"data": {"type": "new_player", "id": "p1"}}
+      }
+    },
+    {
+      "type": "projection",
+      "id": "proj3",
+      "attributes": {
+        "line_score": 2.5,
+        "stat_type": "Total Rounds",
+        "odds_type": "demon"
+      },
+      "relationships": {
+        "new_player": {"data": {"type": "new_player", "id": "p2"}}
+      }
+    },
+    {
+      "type": "projection",
+      "id": "proj4",
+      "attributes": {
+        "line_score": 100.0,
+        "stat_type": "Fantasy Score",
+        "odds_type": "standard"
+      },
+      "relationships": {
+        "new_player": {"data": {"type": "new_player", "id": "p1"}}
+      }
+    },
+    {
+      "type": "projection",
+      "id": "proj5",
+      "attributes": {
+        "line_score": 20.5,
+        "stat_type": "Round 1 Significant Strikes",
+        "odds_type": "goblin"
+      },
+      "relationships": {
+        "new_player": {"data": {"type": "new_player", "id": "p1"}}
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "new_player",
+      "id": "p1",
+      "attributes": {"name": "Ilia Topuria"}
+    },
+    {
+      "type": "new_player",
+      "id": "p2",
+      "attributes": {"name": "Justin Gaethje"}
+    }
+  ]
+}

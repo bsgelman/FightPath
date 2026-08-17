@@ -1,0 +1,100 @@
+{
+  "over_under_lines": [
+    {
+      "id": "line1",
+      "stat_value": "62.5",
+      "over_under": {
+        "id": "ou1",
+        "title": "Significant Strikes",
+        "appearance_stat": {
+          "id": "as1",
+          "stat": "Significant Strikes",
+          "appearance_id": "app1"
+        }
+      },
+      "options": [
+        {"choice": "higher", "payout_multiplier": "3.0"},
+        {"choice": "lower", "payout_multiplier": "3.0"}
+      ]
+    },
+    {
+      "id": "line2",
+      "stat_value": "3.5",
+      "over_under": {
+        "id": "ou2",
+        "title": "Fight Time",
+        "appearance_stat": {
+          "id": "as2",
+          "stat": "Fight Time",
+          "appearance_id": "app2"
+        }
+      },
+      "options": [
+        {"choice": "higher", "payout_multiplier": "4.5", "option_type": "boost"},
+        {"choice": "lower", "payout_multiplier": "4.5", "option_type": "boost"}
+      ]
+    },
+    {
+      "id": "line3",
+      "stat_value": "1.5",
+      "over_under": {
+        "id": "ou3",
+        "title": "Takedowns",
+        "appearance_stat": {
+          "id": "as3",
+          "stat": "Takedowns",
+          "appearance_id": "app3"
+        }
+      },
+      "options": [
+        {"choice": "higher", "payout_multiplier": "3.0"},
+        {"choice": "lower", "payout_multiplier": "3.0"}
+      ]
+    },
+    {
+      "id": "line4",
+      "stat_value": "99.9",
+      "over_under": {
+        "id": "ou4",
+        "title": "Fantasy Score",
+        "appearance_stat": {
+          "id": "as4",
+          "stat": "Fantasy Score",
+          "appearance_id": "app1"
+        }
+      },
+      "options": [
+        {"choice": "higher", "payout_multiplier": "3.0"},
+        {"choice": "lower", "payout_multiplier": "3.0"}
+      ]
+    },
+    {
+      "id": "line5",
+      "stat_value": "3.5",
+      "over_under": {
+        "id": "ou5",
+        "title": "Total Rounds",
+        "appearance_stat": {
+          "id": "as5",
+          "stat": "Total Rounds",
+          "appearance_id": "app4"
+        }
+      },
+      "options": [
+        {"choice": "higher", "payout_multiplier": "3.0"},
+        {"choice": "lower", "payout_multiplier": "3.0"}
+      ]
+    }
+  ],
+  "appearances": [
+    {"id": "app1", "player_id": "player1"},
+    {"id": "app2", "player_id": "player1"},
+    {"id": "app3", "player_id": "player2"},
+    {"id": "app4", "player_id": "player2"}
+  ],
+  "players": [
+    {"id": "player1", "display_name": "Ilia Topuria", "sport_id": "MMA"},
+    {"id": "player2", "display_name": "Justin Gaethje", "sport_id": "MMA"},
+    {"id": "player3", "display_name": "LeBron James", "sport_id": "NBA"}
+  ]
+}
