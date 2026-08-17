@@ -1,0 +1,104 @@
+{
+  "fights": [
+    {
+      "lowData": false,
+      "a": {
+        "name": "Dricus Du Plessis"
+      },
+      "id": "fight_0",
+      "b": {
+        "name": "Kamaru Usman"
+      }
+    },
+    {
+      "lowData": false,
+      "a": {
+        "name": "Jared Cannonier"
+      },
+      "id": "fight_1",
+      "b": {
+        "name": "Christian Leroy Duncan"
+      }
+    },
+    {
+      "lowData": true,
+      "a": {
+        "name": "Chase Hooper"
+      },
+      "id": "fight_2",
+      "b": {
+        "name": "Mitch Ramirez"
+      }
+    },
+    {
+      "lowData": false,
+      "a": {
+        "name": "Tabatha Ricci"
+      },
+      "id": "fight_3",
+      "b": {
+        "name": "Fatima Kline"
+      }
+    },
+    {
+      "lowData": true,
+      "a": {
+        "name": "Tommy McMillen"
+      },
+      "id": "fight_4",
+      "b": {
+        "name": "Alberto Montes"
+      }
+    },
+    {
+      "lowData": true,
+      "a": {
+        "name": "Austin Bashi"
+      },
+      "id": "fight_5",
+      "b": {
+        "name": "Jose Delgado"
+      }
+    },
+    {
+      "lowData": true,
+      "a": {
+        "name": "Jean-Paul Lebosnoyani"
+      },
+      "id": "fight_6",
+      "b": {
+        "name": "Seokhyeon Ko"
+      }
+    },
+    {
+      "lowData": true,
+      "a": {
+        "name": "Alden Coria"
+      },
+      "id": "fight_8",
+      "b": {
+        "name": "Stewart Nicoll"
+      }
+    },
+    {
+      "lowData": true,
+      "a": {
+        "name": "RJ Harris"
+      },
+      "id": "fight_9",
+      "b": {
+        "name": "Alvin Hines"
+      }
+    },
+    {
+      "lowData": true,
+      "a": {
+        "name": "Anna Melisano"
+      },
+      "id": "fight_10",
+      "b": {
+        "name": "Dione Barbosa"
+      }
+    }
+  ]
+}

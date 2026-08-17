@@ -1,0 +1,99 @@
+{
+  "rows": [
+    {
+      "fightIdx": 0,
+      "fighter": "Kamaru Usman",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 0,
+      "fighter": "Dricus Du Plessis",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 1,
+      "fighter": "Christian Duncan",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 1,
+      "fighter": "Jared Cannonier",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 2,
+      "fighter": "Mitch Ramirez",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 2,
+      "fighter": "Chase Hooper",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 4,
+      "fighter": "Alberto Montes",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 4,
+      "fighter": "Tommy McMillen",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 3,
+      "fighter": "Tabatha Ricci",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 3,
+      "fighter": "Fatima Kline",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 5,
+      "fighter": "Jose Delgado",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 5,
+      "fighter": "Austin Bashi",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 6,
+      "fighter": "Jean-Paul Lebosnoyani",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 8,
+      "fighter": "Stewart Nicoll",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 8,
+      "fighter": "Alden Coria",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 9,
+      "fighter": "Alvin Hines",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 9,
+      "fighter": "RJ Harris",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 10,
+      "fighter": "Anna Melisano",
+      "marketKind": "winner"
+    },
+    {
+      "fightIdx": 10,
+      "fighter": "Dione Barbosa",
+      "marketKind": "winner"
+    }
+  ]
+}
